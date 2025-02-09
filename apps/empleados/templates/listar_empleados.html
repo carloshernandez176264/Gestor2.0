@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Empleados</h1>
+<a href="{% url 'crear_empleado' %}" class="btn btn-primary">Crear Empleado</a>
+<ul class="list-group mt-3">
+    {% for empleado in empleados %}
+        <li class="list-group-item">
+            {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.puesto }}
+            <a href="{% url 'editar_empleado' empleado.id %}" class="btn btn-sm btn-warning">Editar</a>
+            <a href="{% url 'eliminar_empleado' empleado.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

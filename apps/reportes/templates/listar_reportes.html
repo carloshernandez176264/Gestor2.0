@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Reportes</h1>
+<a href="{% url 'crear_reporte' %}" class="btn btn-primary">Crear Reporte</a>
+<ul class="list-group mt-3">
+    {% for reporte in reportes %}
+        <li class="list-group-item">
+            {{ reporte.titulo }} - {{ reporte.fecha }}
+            <a href="{% url 'editar_reporte' reporte.id %}" class="btn btn-sm btn-warning">Editar</a>
+            <a href="{% url 'eliminar_reporte' reporte.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

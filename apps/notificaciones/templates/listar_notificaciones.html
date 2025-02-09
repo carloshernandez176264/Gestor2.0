@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Notificaciones</h1>
+<a href="{% url 'crear_notificacion' %}" class="btn btn-primary">Crear Notificación</a>
+<ul class="list-group mt-3">
+    {% for notificacion in notificaciones %}
+        <li class="list-group-item">
+            {{ notificacion.mensaje }} - {{ notificacion.fecha }}
+            <a href="{% url 'editar_notificacion' notificacion.id %}" class="btn btn-sm btn-warning">Editar</a>
+            <a href="{% url 'eliminar_notificacion' notificacion.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

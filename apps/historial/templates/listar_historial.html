@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Historial</h1>
+<a href="{% url 'crear_historial' %}" class="btn btn-primary">Crear Historial</a>
+<ul class="list-group mt-3">
+    {% for historial in historiales %}
+        <li class="list-group-item">
+            {{ historial.accion }} - {{ historial.fecha }}
+            <a href="{% url 'editar_historial' historial.id %}" class="btn btn-sm btn-warning">Editar</a>
+            <a href="{% url 'eliminar_historial' historial.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
